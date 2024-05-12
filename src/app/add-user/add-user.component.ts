@@ -31,9 +31,13 @@ constructor(private _AdminService:AdminService,private _Router:Router,private _A
         next:(res)=>{
           console.log(res)
           if(res){
+
             // alert(res.body)
             this.isLoading=false;
             this._Router.navigate(['home/add-user'])
+            if(res.statusCodeValue==200){
+              alert("user add successs")
+            }
           }
         },
         error:(err)=>{

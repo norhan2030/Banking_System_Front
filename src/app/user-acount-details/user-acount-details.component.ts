@@ -60,6 +60,11 @@ handleTransation(TransationForm:FormGroup){
         if(res){
           this.isLoading=false;
           this._Router.navigate(['user/account-detailes/'+this.AcountId])
+          if(res.statusCodeValue==200){
+            alert("money send success")
+          }else{
+            alert(res.body)
+          }
         }
        
       },

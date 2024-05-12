@@ -30,8 +30,10 @@ export class ViewBalanceComponent {
             this.balance=res.balance;
             this.isLoading=false;
             this._Router.navigate(['home/view-balance'])
+          }else{
+            alert("this account not found");
           }
-          // alert(res.body)
+          
         },
         error:(err)=>{
           // console.log(err);

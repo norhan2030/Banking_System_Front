@@ -32,9 +32,11 @@ export class DeleteAccountComponent {
         
           if(res){
             this.isLoading=false;
+            alert("delete account success")
             this._Router.navigate(['home/delete-account'])
+            
           }
-          alert(res.body)
+          
         },
         error:(err)=>{
           // console.log(err);

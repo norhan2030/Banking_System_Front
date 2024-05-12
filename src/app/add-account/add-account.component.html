@@ -25,6 +25,19 @@
               >
                 accountNumber is required
               </p>
+              <p
+                  *ngIf="addAccountForm.get('accountNumber')?.getError('pattern')"
+                  class="m-0"
+                >
+                  Account number  Special characters, Characters and Spaces are not
+                  allowed
+                </p>
+                <p
+                  *ngIf="addAccountForm.get('accountNumber')?.getError('maxlength')"
+                  class="m-0"
+                >
+                  Account number max length is 14
+                </p>
             </div>
           </div>
 
@@ -47,11 +60,12 @@
             "
           >
             <p
-              *ngIf="addAccountForm.get('accountNumber')?.getError('required')"
+              *ngIf="addAccountForm.get('balance')?.getError('required')"
               class="m-0"
             >
             balance is required
             </p>
+            
           </div>
         </div>
 

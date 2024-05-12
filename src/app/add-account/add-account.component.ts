@@ -15,8 +15,8 @@ constructor(private _AdminService:AdminService,private _Router:Router,private _A
   isLoading:boolean=false;
   apiError:string='';
   addAccountForm:FormGroup=new FormGroup({
-    accountNumber:new FormControl(null,[Validators.required]),
-    nationalId:new FormControl(null,[Validators.required]),
+    accountNumber:new FormControl(null,[Validators.required,Validators.maxLength(14),Validators.pattern(/^(?=\d{1,14}$)(?=[^\W_]+$)(?=\d+$)(?=\S+$).+$/)]),
+    nationalId:new FormControl(null,[Validators.required,Validators.maxLength(14),Validators.pattern(/^(?=\d{1,14}$)(?=[^\W_]+$)(?=\d+$)(?=\S+$).+$/)]),
     balance:new FormControl(null,[Validators.required]), 
   });
   handleAddAccount(addAccountForm:FormGroup){
@@ -29,8 +29,9 @@ constructor(private _AdminService:AdminService,private _Router:Router,private _A
           console.log(res)
           if(res){
             this.isLoading=false;
+            alert("account add success");
             this._Router.navigate(['home/add-account'])
-            alert(res.body)
+            
           }
         },
         error:(err)=>{
